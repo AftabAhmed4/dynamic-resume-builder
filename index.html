@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="head-sec" id="front-page">
+        <div class="content">
+            <h1>Resume Builder</h1>
+            <p>Let's Work Together To Build A Resume That Showcases Your Excellence <br> And Helps You To Achieve Your
+                Career Goals!</p>
+            <!-- <img src="./resume.png" alt=""> -->
+            <button onclick="firstPage()" class="btn">Let's Create Resume</button>
+        </div>
+    </div>
+
+    <div class="second-page" id="second-page">
+        <div class="content">
+            <h1>Resume Builder</h1>
+            <h3>Choose One Theme To Design Resume</h3>
+            <div class="resume-choice" id="resume-choice">
+                <img src="./Resume Builder2.svg" alt="Theme 1">
+                <img src="./Resume Builder2.png" alt="Theme 2">
+                <img src="./Resume Builder2.png" alt="Theme 3">
+            </div>
+            <button class="btn" onclick="generateResume()">Generate Resume</button>
+        </div>
+    </div>
+    <!-- <div id="theme"></div> -->
+    <div class="thirdPage" id="thirdPage">
+        <div class="form">
+            <h2>Fill All The Information To Generate Resume</h2>
+            <!-- Add form element -->
+            <form id="resumeForm">
+                <div class="name">
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" placeholder="Enter First Name" id="fname" required minlength="2">
+                    </div>
+
+                    <div>
+                        <label for="lname">Last Name</label>
+                        <input type="text" placeholder="Enter Last Name" id="lname" required minlength="2">
+                    </div>
+                </div>
+
+                <label for="profession">Profession</label>
+                <input type="text" placeholder="Enter Your Profession" id="profession" required minlength="2">
+
+                <label for="about">About</label>
+                <textarea name="about" id="about" placeholder="Describe About Yourself.." required
+                    minlength="10"></textarea>
+
+                <label for="email">Email Address</label>
+                <input type="email" placeholder="Write Your Email" id="email" required>
+
+                <label for="contact">Contact No</label>
+                <input type="tel" placeholder="Write Your Contact no" id="contact" required pattern="\d{10}">
+
+                <button type="button" onclick="validateAndSubmit()"> Save & Next</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="forthPage" id="forthPage">
+        <div class="form">
+            <h2>Fill All The Information To Generate Resume</h2>
+            <!-- Add form element -->
+            <form id="resumeForm">
+                <label for="profession">Skills</label>
+                <div id="addsecskill">
+                    <input type="text" placeholder="Enter Skill" id="skill" required minlength="4">
+                    <div class="message" id="msgSkill"></div>
+                </div>
+                <h4 onclick="addSkill()"><span>Save & Add Another</span></h4>
+                <label for="email">Languages</label>
+                <div id="addsecLan">
+                    <input type="text" placeholder="Enter Languages" id="language" required minlength="4">
+                    <div class="message" id="msgLang"></div>
+                </div>
+                <h4 onclick="addLang()"><span>Save & Add Another</span></h4>
+                <label for="contact">Hobbies</label>
+                <div id="addsechobb">
+                    <input type="text" placeholder="Enter Hobbies" id="hobbies" required minlength="4">
+                    <div class="message" id="msgHobb"></div>
+                </div>
+                <h4 onclick="addHobbies()"><span>Save & Add Another</span></h4>
+                <button type="button" onclick="formPagination2()"> Save & Next</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="fifthPage" id="fifthPage">
+        <div class="form">
+            <h2>Fill All The Information To Generate Resume</h2>
+            <form id="resumeForm">
+                <h3>Portfolio</h3>
+                <div id="name"> <!-- Change the class to an ID to reference it in JS -->
+                    <div>
+                        <label for="fname">Portfolio Platform</label>
+                        <input type="text" placeholder="e.g Github, Linkedin, Behance" id="platform" required
+                            minlength="2">
+                    </div>
+                    <div>
+                        <label for="lname">Link</label>
+                        <input type="text" placeholder="Enter Link" id="linkPlatform" required minlength="2">
+                    </div>
+                    <div class="message" id="msgPort"></div>
+                </div>
+                <h4 onclick="addPort()"><span>Save & Add Another</span></h4>
+                <h3>Experience</h3>
+                <div class="experience" id="experience">
+                    <label for="company-name">Company Name</label>
+                    <input type="text" placeholder="Enter Company Name" id="companyName">
+                    <div class="responsiblities" id="responsiblities">
+                        <label for="company-name">responsiblities</label>
+                        <input type="text" placeholder="Enter responsiblities" id="responsibilities">
+                    </div>
+                    <div class="message" id="msgexp"></div>
+                </div>
+                <h4 onclick="addExp()"><span>Save & Add Another</span></h4>
+                <h3>Education</h3>
+                <div class="education" id="education">
+                    <div>
+                        <label for="fname">Degree Title</label>
+                        <input type="text" placeholder="e.g Matric, FSC, BSC" id="degree" required minlength="2">
+                    </div>
+                    <div>
+                        <label for="lname">Institute</label>
+                        <input type="text" placeholder="Enter Institute Name" id="institute" required minlength="2">
+                    </div>
+                    <div class="message" id="msgedu"></div>
+                </div>
+                <h4 onclick="addEdu()"><span>Save & Add Another</span></h4>
+                <button type="button" onclick="formPagination3()">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="sixthPage" id="sixthPage">
+        <div id="resumeDisplay">
+        </div>
+
+        <!-- <div class="btn-resume" onclick="printCard()">Print Resume</div> -->
+        <button onclick="printCard()" class="btn">Print</button>
+        <button onclick="editPagination2()" class="btn">Edit</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
